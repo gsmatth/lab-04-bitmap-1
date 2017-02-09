@@ -1,5 +1,6 @@
 'use strict';
 const fs = require('fs');
+const createBitmapFile = require('./create-bitmap-file');
 
 module.exports = function (err, filePaths){
   if(err) return new Error(err);
@@ -33,6 +34,7 @@ module.exports = function (err, filePaths){
       console.log('compression method used (0 = none): ', typeCompression);
       var colorTable = data.slice(55, 1077);
       console.log('color table content: ', colorTable);
+      createBitmapFile(data);
     }
   });
 };
