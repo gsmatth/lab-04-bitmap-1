@@ -4,10 +4,15 @@ const createBitmapFile = require('./create-bitmap-file');
 
 module.exports = function (err, filePaths){
   if(err) return new Error(err);
+  console.log('data passed from #readdir: ', filePaths);
+  //[ 'bitmap.bmp', 'finger-print.bmp', 'house.bmp' ]
   fs.readFile('./data/' + filePaths[0], function(err, data){
     if(err) console.log('error in #fs.readFile', err);
+    console.log('file passed to #readFile: ', filePaths[0]);
     var headerField = data.toString('utf8', 0, 2);
+    console.log('headerfield: ', headerField);
     if(headerField === 'BM'){
+      // console.log('inside if statement: ', headerField);
       var fileSize = data.readUInt32LE(2);
       console.log('the size of the file in bytes: ', fileSize);
       var pixelArrayOffset = data.readUInt32LE(10);
