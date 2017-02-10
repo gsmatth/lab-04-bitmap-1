@@ -32,7 +32,8 @@ module.exports = function (err, filePaths){
       console.log('number of colors in the color palette: ', numberOfColors);
       var typeCompression = data.readUInt32LE(30);
       console.log('compression method used (0 = none): ', typeCompression);
-      var colorTable = data.slice(55, 1077);
+      //var colorTable = data.slice(55, 1077);
+      var colorTable = data.slice(`${infoHeaderSize + 14}`, 1077);
       console.log('color table content: ', colorTable);
       createBitmapFile(data);
     }
