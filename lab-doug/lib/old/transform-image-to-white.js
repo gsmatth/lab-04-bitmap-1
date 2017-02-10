@@ -5,5 +5,6 @@ module.exports = function(tempBuffer, newColorTable){
     tempBuffer.writeUInt8(255, i);
     tempBuffer.writeUInt8(255, i + 1);
     tempBuffer.writeUInt8(255, i + 2);
+    tempBuffer.writeUInt8(255, i + 3);
   }
 };
