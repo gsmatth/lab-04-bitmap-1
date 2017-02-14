@@ -5,7 +5,7 @@ const mocha = require('gulp-mocha');
 const eslint = require('gulp-eslint');
 
 gulp.task('test', function(){
-  gulp.src('.test/*-test.js', {read: false})
+  gulp.src('./test/*-test.js', {read: false})
   .pipe(mocha({reporter: 'spec'}));
 });
 
